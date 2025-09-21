@@ -40,7 +40,7 @@ def index():
         try:
             # Define the start and end dates for stock data
             start = dt.datetime(2020, 1, 1)  # Reduced date range for faster loading
-            end = dt.datetime(2025, 7, 1)
+            end = dt.datetime(2024, 10, 1)
             
             # Download stock data
             print(f"Downloading data for {stock}...")
@@ -118,7 +118,7 @@ def index():
             plt.legend()
             plt.grid(True, alpha=0.3)
             plt.tight_layout()
-            ema_chart_path = "static/ema_20_50.png"
+            ema_chart_path = "stock_price_prediction-main/static/ema_20_50.png"
             plt.savefig(ema_chart_path, dpi=100, bbox_inches='tight')
             plt.close()
             
@@ -133,7 +133,7 @@ def index():
             plt.legend()
             plt.grid(True, alpha=0.3)
             plt.tight_layout()
-            ema_chart_path_100_200 = "static/ema_100_200.png"
+            ema_chart_path_100_200 = "stock_price_prediction-main/static/ema_100_200.png"
             plt.savefig(ema_chart_path_100_200, dpi=100, bbox_inches='tight')
             plt.close()
             
@@ -147,7 +147,7 @@ def index():
             plt.legend()
             plt.grid(True, alpha=0.3)
             plt.tight_layout()
-            prediction_chart_path = "static/stock_prediction.png"
+            prediction_chart_path = "stock_price_prediction-main/static/stock_prediction.png"
             plt.savefig(prediction_chart_path, dpi=100, bbox_inches='tight')
             plt.close()
             
@@ -177,7 +177,7 @@ def index():
 @app.route('/download/<filename>')
 def download_file(filename):
     try:
-        return send_file(f"static/{filename}", as_attachment=True)
+        return send_file(f"stock_price_prediction-main/static/{filename}", as_attachment=True)
     except FileNotFoundError:
         return "File not found", 404
 
