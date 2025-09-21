@@ -118,7 +118,7 @@ def index():
             plt.legend()
             plt.grid(True, alpha=0.3)
             plt.tight_layout()
-            ema_chart_path = "stock_price_prediction-main/static/ema_20_50.png"
+            ema_chart_path = "static/ema_20_50.png"
             plt.savefig(ema_chart_path, dpi=100, bbox_inches='tight')
             plt.close()
             
@@ -133,7 +133,7 @@ def index():
             plt.legend()
             plt.grid(True, alpha=0.3)
             plt.tight_layout()
-            ema_chart_path_100_200 = "stock_price_prediction-main/static/ema_100_200.png"
+            ema_chart_path_100_200 = "static/ema_100_200.png"
             plt.savefig(ema_chart_path_100_200, dpi=100, bbox_inches='tight')
             plt.close()
             
@@ -147,7 +147,7 @@ def index():
             plt.legend()
             plt.grid(True, alpha=0.3)
             plt.tight_layout()
-            prediction_chart_path = "stock_price_prediction-main/static/stock_prediction.png"
+            prediction_chart_path = "stock_prediction.png"
             plt.savefig(prediction_chart_path, dpi=100, bbox_inches='tight')
             plt.close()
             
@@ -177,7 +177,7 @@ def index():
 @app.route('/download/<filename>')
 def download_file(filename):
     try:
-        return send_file(f"stock_price_prediction-main/static/{filename}", as_attachment=True)
+        return send_file(f"static/{filename}", as_attachment=True)
     except FileNotFoundError:
         return "File not found", 404
 
@@ -186,3 +186,4 @@ if __name__ == '__main__':
     print("Make sure you have the following packages installed:")
     print("pip install flask pandas numpy matplotlib yfinance scikit-learn")
     app.run(debug=True, host='0.0.0.0', port=5000)
+
